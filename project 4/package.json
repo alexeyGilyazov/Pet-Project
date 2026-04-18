@@ -1,0 +1,26 @@
+{
+  "name": "sensor-board",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass style/style.scss style/style.css",
+    "sass:watch": "sass --watch style:style"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexeyGilyazov/board.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/alexeyGilyazov/board/issues"
+  },
+  "homepage": "https://github.com/alexeyGilyazov/board#readme",
+  "devDependencies": {
+    "sass": "^1.99.0"
+  }
+}
