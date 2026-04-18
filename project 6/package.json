@@ -1,0 +1,17 @@
+{
+  "name": "project-6",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass style/style.scss style/style.css",
+    "sass:watch": "sass --watch style:style"
+  },
+  "devDependencies": {
+    "sass": "^1.99.0"
+  }
+}
