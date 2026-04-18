@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Space+Grotesk:wght@300..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+input,
+button {
+    border: 0;
+    outline: 0;
+}
+
+body {
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Poppins';
+}
+
+.card {
+    flex-basis: 470px;
+    flex-shrink: 1;
+    flex-grow: 0;
+    margin: 0 15px;
+    background: linear-gradient(90deg, #62b8f6 0%, #2c79c1 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 40px 20px;
+    text-align: center;
+    height: 230px;
+    transition: all .5s;
+
+    &__title {
+        font-size: 32px;
+
+        &--temp {
+            font-size: 70px;
+            font-weight: 500;
+        }
+
+        &--city {
+            font-size: 45px;
+            font-weight: 400;
+        }
+    }
+
+    &__date {
+        font-size: 20px;
+        margin-bottom: 15px;
+
+    }
+
+    &__search {
+        display: flex;
+        column-gap: 10px;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    &__input {
+        color: #555;
+        padding: 10px 25px;
+        border-radius: 30px;
+        width: 100%;
+        background: #fff;
+        font-size: 18px;
+        height: 60px;
+    }
+
+    &__btn {
+        border-radius: 50%;
+        width: 60px;
+        flex: 0 0 60px;
+        // cursor: pointer;
+        background: #fff;
+        height: 60px;
+
+        &:hover i {
+            transform: scale(1.6);
+        }
+
+        i {
+            transition: transform .6s;
+        }
+    }
+
+    &__weather {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    &__block {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 15px;
+        margin-bottom: 20px;
+
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    }
+
+    &__details {
+        padding: 0 20px;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+
+    &__col {
+        display: grid;
+        grid-template-columns: 20px 50px auto;
+        align-items: center;
+        text-align: left;
+        column-gap: 16px;
+
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+
+        &-info {
+            width: 20px;
+            flex: 0 0 20px;
+        }
+    }
+
+    &__info {
+        border-left: 1px solid #fff;
+        padding-left: 16px;
+    }
+}
+
+.card.active .card__weather {
+    animation: show .5s forwards;
+    animation-delay: .5s;
+}
+
+@keyframes show {
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
