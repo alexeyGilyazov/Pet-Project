@@ -2,6 +2,7 @@ const addBtn = document.querySelector('#addBtn')
 const input = document.querySelector('#input')
 const list = document.querySelector('#list')
 const deleteBTn = document.querySelector('.deleteBtn')
+const noTask = document.querySelector('.noTask')
 
 addBtn.addEventListener('click', (e) => {
     e.preventDefault()
@@ -13,14 +14,19 @@ addBtn.addEventListener('click', (e) => {
 })
 
 function createElement2(textContent) {
-    const newEl = `<li>${textContent}<button class='deleteBtn'>Delete Me Please</button></li>`
+    const newEl = `<li class='task'>${textContent}<button class='deleteBtn'>Delete Me Please</button></li>`
     list.insertAdjacentHTML('beforeend', newEl)
+    noTask.classList.add('hide')
 }
 
 list.addEventListener('click', (e) => {
     e.preventDefault()
     if (e.target.classList.contains('deleteBtn')) {
         e.target.closest('li').remove()
+        let listArr = document.querySelectorAll('.task')
+        if (listArr.length < 1) {
+            noTask.classList.remove('hide')
+        }
     }
 })
 

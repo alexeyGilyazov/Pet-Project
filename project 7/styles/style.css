@@ -16,6 +16,15 @@ body {
   background-color: #f0f0ff;
 }
 
+.noTask {
+  transition: 0.5s all;
+  opacity: 1;
+}
+
+.hide {
+  opacity: 0;
+}
+
 .todo {
   display: flex;
   flex-direction: column;
