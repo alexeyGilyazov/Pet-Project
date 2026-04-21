@@ -14,6 +14,10 @@ li {
 
 body {
   background-color: #f0f0ff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .noTask {
@@ -28,13 +32,21 @@ body {
 .todo {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 60px;
+  align-items: stretch;
+  gap: 30px;
   background-color: #fbfbfe;
   width: 500px;
-  height: 300px;
   margin: 0 auto;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(1, 1, 1, 0.1);
+}
+.todo__list {
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .todo__input {
   display: flex;
@@ -42,6 +54,7 @@ body {
   justify-content: center;
   gap: 30px;
   box-shadow: 0 -10px 10px 0 rgba(1, 1, 1, 0.05);
+  padding: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */
