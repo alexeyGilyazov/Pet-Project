@@ -12,7 +12,10 @@ function saveTasks() {
 }
 
 function addTask(text) {
-    if (!text.trim()) return // проверка инпута на ввод
+    if (!text.trim()) {
+        alert('please enter task')
+        return
+    }// проверка инпута на ввод
     const newTask = { id: Date.now(), text: text, completed: false }; // создаем новую задачку
     tasks.push(newTask) //пушим в в массив задачек
     saveTasks();//сохраняем
@@ -52,7 +55,6 @@ addBtn.addEventListener('click', (e) => {
     input.value = '';
 })
 
-
 // Удаление задачи при клике
 list.addEventListener('click', (e) => {
     if (e.target.classList.contains('deleteBtn')) {
@@ -60,6 +62,12 @@ list.addEventListener('click', (e) => {
         deleteTask(id);
     }
 })
+input.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        addBtn.click();
+    }
+})
+
 
 
 renderTasks();
