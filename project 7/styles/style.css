@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   padding: 0;
   margin: 0;
@@ -29,6 +30,10 @@ body {
   opacity: 0;
 }
 
+.line-through {
+  text-decoration: line-through;
+}
+
 .todo {
   display: flex;
   flex-direction: column;
@@ -55,6 +60,44 @@ body {
   gap: 30px;
   box-shadow: 0 -10px 10px 0 rgba(1, 1, 1, 0.05);
   padding: 20px;
+}
+
+.task {
+  padding: 10px;
+  margin: 5px 0;
+  background: #f0f0f0;
+  border-radius: 5px;
+  cursor: pointer; /* Показываем, что это кликабельно */
+  transition: all 0.3s ease;
+}
+
+.task:hover {
+  background: #e0e0e0;
+}
+
+/*стиль для выполненной задачи */
+.task.completed {
+  opacity: 0.6;
+  background: #d4edda;
+}
+
+.task.completed .task-text {
+  text-decoration: line-through;
+  color: #666;
+}
+
+.deleteBtn {
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.deleteBtn:hover {
+  background: #ff5252;
 }
 
 /*# sourceMappingURL=style.css.map */

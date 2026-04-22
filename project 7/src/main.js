@@ -28,7 +28,7 @@ function deleteTask(id) {
     renderTasks(); // Перерисовываем список
 }
 
-// ✅ НОВАЯ ФУНКЦИЯ: отображение всех задач
+// отображение всех задач
 function renderTasks() {
     list.innerHTML = ''; // Очищаем список
 
@@ -40,7 +40,8 @@ function renderTasks() {
     tasks.forEach(task => {
         const li = document.createElement('li');
         li.className = 'task';
-        li.innerHTML = `${task.text}<button class='deleteBtn' data-id='${task.id}'>Delete Me Please</button>`;
+        const dateCreated = new Date(task.id).toLocaleString('ru-RU');
+        li.innerHTML = `${task.text} Create-${dateCreated}<button class='deleteBtn' data-id='${task.id}'>Done</button><span class='time-done'></span>`;
         list.appendChild(li);
     });
 
@@ -59,15 +60,28 @@ addBtn.addEventListener('click', (e) => {
 list.addEventListener('click', (e) => {
     if (e.target.classList.contains('deleteBtn')) {
         const id = parseInt(e.target.getAttribute('data-id'));
-        deleteTask(id);
+        // deleteTask(id);
+        throughTask(e.target)
     }
 })
+//слушаем нажатие энтер 
 input.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         addBtn.click();
     }
 })
-
+// зачеркивание выполненных задач и изменение флага 
+function throughTask(el) {
+    const parentLi = el.closest('.task')
+    parentLi.classList.add('line-through')
+    let spanDone = document.querySelector('.time-done')
+    spanDone.innerHTML = new Date().toLocaleString('ru-RU')
+    // parentLi.innerHTML += ` Done ${new Date().toLocaleString('ru-RU')}`
+    let debug = el.getAttribute('data-id')
+    let correctTask = tasks.find(t => t.id == debug)
+    correctTask.completed = !correctTask.completed
+    console.log(tasks);
+}
 
 
 renderTasks();
