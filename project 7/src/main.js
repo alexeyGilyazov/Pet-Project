@@ -27,7 +27,7 @@ function deleteTask(id) {
 }
 
 function renderTasks() {
-    list.innerHTML = '';
+    list.innerHTML = ' ';
 
     if (tasks.length === 0) {
         list.innerHTML = '<li class="noTask">Задач нет</li>';
