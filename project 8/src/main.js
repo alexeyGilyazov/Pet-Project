@@ -1,37 +1,24 @@
 const item = document.querySelector('.item')
 const placeHolders = document.querySelectorAll('.placeholder')
+const input = document.getElementById('input')
+const addBtn = document.getElementById('addBtn')
+
 
 placeHolders.forEach(placeHolder => {
-    placeHolder.addEventListener('dragover', dragOver)
-    placeHolder.addEventListener('dragenter', dragEnter)
-    placeHolder.addEventListener('dragleave', dragLeave)
+    placeHolder.addEventListener('dragover', (event) => event.preventDefault())
+    placeHolder.addEventListener('dragenter', (event) => event.target.classList.add('hovered'))
+    placeHolder.addEventListener('dragleave', (event) => event.target.classList.remove('hovered'))
     placeHolder.addEventListener('drop', dragDrop)
 })
 
 item.addEventListener('dragstart', dragStart)
-item.addEventListener('dragend', dragEnd)
+item.addEventListener('dragend', (event) => event.target.className = 'item')
 
 function dragStart(event) {
     event.target.classList.add('hold')
     setTimeout(() => {
         event.target.classList.add('hide'), 0
     })
-}
-
-function dragEnd(event) {
-    event.target.className = 'item'
-}
-
-function dragOver(event) {
-    event.preventDefault()
-}
-
-function dragEnter(event) {
-    event.target.classList.add('hovered')
-}
-
-function dragLeave(event) {
-    event.target.classList.remove('hovered')
 }
 
 function dragDrop(event) {
