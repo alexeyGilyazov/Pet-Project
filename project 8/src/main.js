@@ -1,8 +1,6 @@
-const item = document.querySelector('.item')
 const placeHolders = document.querySelectorAll('.placeholder')
 const input = document.getElementById('input')
 const addBtn = document.getElementById('addBtn')
-
 
 placeHolders.forEach(placeHolder => {
     placeHolder.addEventListener('dragover', (event) => event.preventDefault())
@@ -11,11 +9,8 @@ placeHolders.forEach(placeHolder => {
     placeHolder.addEventListener('drop', dragDrop)
 })
 
-item.addEventListener('dragstart', dragStart)
-item.addEventListener('dragend', (event) => event.target.className = 'item')
-
 function dragStart(event) {
-    event.target.classList.add('hold', 'hide')
+    event.target.classList.add('hold')
     setTimeout(() => {
         event.target.classList.add('hide')
     }, 0)
@@ -24,7 +19,6 @@ function dragStart(event) {
 function dragDrop(event) {
     event.preventDefault()
     event.target.classList.remove('hovered')
-    event.target.append(item)
 
     const draggedItem = document.querySelector('.hide')
     if (draggedItem) {
@@ -33,11 +27,15 @@ function dragDrop(event) {
 }
 
 function createItem(text) {
+    if (!text.trim()) return
+
     const newItem = document.createElement('div')
     newItem.classList.add('item')
     newItem.setAttribute('draggable', 'true')
     newItem.textContent = text
+
     addListener(newItem)
+
     const place = document.querySelector('.placeholder')
     place.appendChild(newItem)
     input.value = ''
@@ -51,5 +49,10 @@ addBtn.addEventListener('click', e => {
 
 function addListener(item) {
     item.addEventListener('dragstart', dragStart)
-    item.addEventListener('dragend', (event) => event.target.className = 'item')
+    item.addEventListener('dragend', (event) => event.target.classList.remove('hold', 'hide'))
+}
+
+const firstItem = document.querySelector('.item')
+if (firstItem) {
+    addListener(firstItem)
 }

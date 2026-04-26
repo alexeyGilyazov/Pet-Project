@@ -9,24 +9,24 @@
 </head>
 
 <body>
-    <div>
-        <div class="row">
-            <div class="col-header start">Начать</div>
-            <div class="col-header progress">В процессе</div>
-            <div class="col-header done">Готовы</div>
-        </div>
-
-        <div class="row">
-            <div class="placeholder">
-                <div class="item" draggable="true">Перетащи меня</div>
+    <div class="container">
+        <div class="dragAndDrop">
+            <div class="row">
+                <div class="col-header start">Начать</div>
+                <div class="col-header progress">В процессе</div>
+                <div class="col-header done">Готовы</div>
             </div>
-            <div class="placeholder"></div>
-            <div class="placeholder"></div>
+            <div class="row">
+                <div class="placeholder">
+                    <div class="item" draggable="true">Перетащи меня</div>
+                </div>
+                <div class="placeholder"></div>
+                <div class="placeholder"></div>
+            </div>
         </div>
-
         <div class="form">
-            <input type="text" id="input">
-            <button id="addBtn">Add task</button>
+            <input type="text" id="input" placeholder="Введите текс">
+            <button id="addBtn">Добавить</button>
         </div>
     </div>
     <script src="src/main.js"></script>

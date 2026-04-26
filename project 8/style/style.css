@@ -78,4 +78,25 @@ body {
   margin-top: 100px;
 }
 
+#input {
+  padding: 20px;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  margin-right: 40px;
+  background: linear-gradient(90deg, #85b7de 20%, #4fea83 100%);
+  font-size: 20px;
+}
+
+#addBtn {
+  padding: 20px;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  margin-right: 40px;
+  background: linear-gradient(90deg, #4fea83 20%, #85b7de 100%);
+  font-size: 20px;
+  color: white;
+}
+
 /*# sourceMappingURL=style.css.map */
