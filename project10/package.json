@@ -1,0 +1,20 @@
+{
+  "name": "project-10",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite & sass --watch style/style.scss:style/style.css",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "vite": "^latest",
+    "sass": "^latest"
+  }
+}

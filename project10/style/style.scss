@@ -1,0 +1,10 @@
+@use './components/reset';
+@use './components/header.scss';
+@use './components/movies.scss';
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
