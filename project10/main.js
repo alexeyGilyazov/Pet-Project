@@ -2,8 +2,15 @@ const headerInput = document.getElementById('headerInput')
 const headerBtn = document.getElementById('headerBtn')
 const apiKey = import.meta.env.VITE_API_KEY
 const movies = document.getElementById('movies')
-const headerList = document.getElementById('header__list')
 const headerUl = document.getElementById('header__ul')
+
+headerUl.addEventListener('click', function (event) {
+    const li = event.target.closest('li.header__li')
+
+    if (li) {
+        console.log(li.dataset.category)
+    }
+})
 
 
 headerBtn.addEventListener('click', event => {

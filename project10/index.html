@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
     <title>Document</title>
 </head>
-<body> 
+
+<body>
     <header>
         <div class="container">
             <div class="header">
                 <div class="header__logo">
                     <img src="./img/logo.svg" alt="logo">
                 </div>
-                <div class="header__list" id="header__list">
-                    <ul class="header__ul" id="header__ul">
-                        <a href="#" data-category="drama"><li>Драма</li></a>
-                        <a href="#"data-category="action"><li>Боевик</li></a>
-                        <a href="#" data-category="comedy"><li>Комедия</li></a>
-                        <a href="#" data-category="horror"><li>Ужасы</li></a>
-                    </ul>
-                </div>
+
+                <ul class="header__ul" id="header__ul">
+                    <li class="header__li" data-category="drama">
+                        <a href="#">Драма</a>
+                    </li>
+                    <li class="header__li" data-category="action">
+                        <a href="#">Боевик</a>
+                    </li>
+                    <li class="header__li" data-category="comedy">
+                        <a href="#">Комедия</a>
+                    </li>
+                    <li class="header__li" data-category="horror">
+                        <a href="#">Ужасы</a>
+                    </li>
+                </ul>
+
                 <div class="header__input">
                     <input type="text" name="headerInput" id="headerInput" placeholder="Enter movie name">
                     <button type="button" id="headerBtn">Search</button>
@@ -37,4 +47,5 @@
     </section>
     <script type="module" src="main.js"></script>
 </body>
+
 </html>
