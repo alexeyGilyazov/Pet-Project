@@ -6,8 +6,6 @@ body {
 }
 body p {
   position: absolute;
-  top: 50%;
-  right: 50%;
   width: 150px;
   height: 150px;
   border-radius: 40px;
