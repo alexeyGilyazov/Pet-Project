@@ -1,0 +1,17 @@
+{
+  "name": "project-10",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "scss": "sass --watch style/style.scss:style/style.css",
+    "dev": "npm run sass:watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "sass": "^1.99.0"
+  }
+}
