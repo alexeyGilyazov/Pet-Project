@@ -3,6 +3,7 @@ const headerBtn = document.getElementById('headerBtn')
 const apiKey = import.meta.env.VITE_API_KEY
 const movies = document.getElementById('movies')
 const headerUl = document.getElementById('header__ul')
+const genresSelect = document.getElementById('genresSelect')
 
 
 //слушатель жанров
@@ -24,10 +25,18 @@ headerBtn.addEventListener('click', event => {
         alert('Please enter movie name')
         return
     }
-
     headerInput.value = ''
     searchMoviesByTitle(valueInput)
 })
+//слушатель опшинов
+genresSelect.addEventListener('change', (event) => {
+    event.preventDefault()
+    const selectedValue = event.target.value
+    if (selectedValue) {
+        changeGenresOption(selectedValue)
+    }
+})
+
 
 // поиск по названию
 async function searchMoviesByTitle(query) {
@@ -55,7 +64,7 @@ async function searchMoviesByTitle(query) {
     }
 }
 
-
+// поиск по жанру 
 async function searchByGenre(genreId) {
     try {
         const url = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=${genreId}&page=1`
@@ -83,6 +92,7 @@ async function searchByGenre(genreId) {
     }
 }
 
+//отрисовка фильмов
 function renderMovies(filmsList) {
     movies.innerHTML = ''
 
@@ -90,8 +100,7 @@ function renderMovies(filmsList) {
         createNewMovie(film)
     })
 }
-
-
+// создание карточек фильма
 function createNewMovie(data) {
     const movie = document.createElement('div')
     movie.classList.add('movie')
@@ -113,5 +122,74 @@ function createNewMovie(data) {
         </div>`
     movies.appendChild(movie)
 }
+//получаем все жанры с сервера
+async function getGenresOption() {
+    const url = 'https://kinopoiskapiunofficial.tech/api/v2.2/films/filters'
 
+    try {
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'X-API-KEY': `${apiKey}`,
+                'Content-Type': 'application/json',
+            },
+        })
 
+        const data = await response.json()
+        renderGenresOption(data)
+        return data.genres
+    } catch (err) {
+        console.error('Ошибка при загрузке жанров:', err)
+    }
+}
+//отрисовка опшинов
+function renderGenresOption(data) {
+    const genresSelect = document.getElementById('genresSelect')
+    genresSelect.innerHTML = '<option value="">Выберите жанр</option>'
+    data.genres.map(genre => {
+        if (!genre) return
+        const newOption = document.createElement('option')
+        newOption.setAttribute('value', genre.id)
+        newOption.textContent = genre.genre
+        newOption.classList.add('genresOption')
+        genresSelect.appendChild(newOption)
+    })
+}
+
+//изменение опшинов 
+async function changeGenresOption(value) {
+    try {
+        const url = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=${value}&page=1`
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'X-API-KEY': `${apiKey}`,
+                'Content-Type': 'application/json',
+            },
+        })
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`)
+        }
+
+        const data = await response.json()
+        if (data.items && data.items.length > 0) {
+            renderMovies(data.items)
+        } else {
+            movies.innerHTML = '<p>Фильмы не найдены 😞</p>'
+        }
+    } catch (err) {
+        console.error('Ошибка:', err)
+        movies.innerHTML = `<p>Ошибка при загрузке: ${err.message}</p>`
+    }
+}
+
+//получение опшинов при загрузске страницы
+getGenresOption()
+//первичное получение жанров 
+document.addEventListener('DOMContentLoaded', async () => {
+    const genresData = await getGenresOption()
+    if (genresData) {
+        renderGenresOption({ genres: genresData })
+    }
+})
