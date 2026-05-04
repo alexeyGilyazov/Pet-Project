@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/style.css" />
     <title>Document</title>
 </head>
 
@@ -13,36 +13,38 @@
         <div class="container">
             <div class="header">
                 <div class="header__logo">
-                    <img src="./img/logo.svg" alt="logo">
+                    <img src="./img/logo.svg" alt="logo" />
                 </div>
 
                 <ul class="header__ul" id="header__ul">
-                    <li class="header__li" data-category="drama">
+                    <li class="header__li" data-category="1">
+                        <a href="#">Триллер</a>
+                    </li>
+                    <li class="header__li" data-category="7">
+                        <a href="#">Фантастика</a>
+                    </li>
+                    <li class="header__li" data-category="2">
                         <a href="#">Драма</a>
                     </li>
-                    <li class="header__li" data-category="action">
-                        <a href="#">Боевик</a>
-                    </li>
-                    <li class="header__li" data-category="comedy">
-                        <a href="#">Комедия</a>
-                    </li>
-                    <li class="header__li" data-category="horror">
-                        <a href="#">Ужасы</a>
+                    <li class="header__li" data-category="8">
+                        <a href="#">Биография</a>
                     </li>
                 </ul>
 
                 <div class="header__input">
-                    <input type="text" name="headerInput" id="headerInput" placeholder="Enter movie name">
+                    <input type="text" name="headerInput" id="headerInput" placeholder="Enter movie name" />
                     <button type="button" id="headerBtn">Search</button>
                 </div>
+
+                
+
             </div>
         </div>
     </header>
 
     <section>
         <div class="container">
-            <div class="movies" id="movies">
-            </div>
+            <div class="movies" id="movies"></div>
         </div>
     </section>
     <script type="module" src="main.js"></script>
